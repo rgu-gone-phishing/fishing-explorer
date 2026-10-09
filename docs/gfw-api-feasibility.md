@@ -1,0 +1,84 @@
+# GFW API feasibility and extraction playbook
+
+Research date: 2026-10-09. Scope: AIS-based **apparent fishing effort**, its historical downloads, and adjacent APIs relevant to downstream analysis. Endpoint capabilities below are from GFW's public documentation; the small measured responses in the probe section came from authenticated `curl` calls.
+
+## Decision
+
+Build an **offline, versioned research workbench** around GFW's data. A second interactive map with basic heatmaps, vessel tracks, and before/after charts would mostly duplicate the [GFW map](https://globalfishingwatch.org/user-guide/). The distinctive work is to freeze an exact data extract; join it to external covariates or policy boundaries; run repeatable spatial and temporal analyses; retain provenance and caveats; and export figures and tables suitable for review. This is a proposed project focus, not a claim that GFW cannot perform any individual analysis below.
+
+The static fishing effort release is the best starting point for broad historical work. Use the 4Wings **report** endpoint for custom areas and newer API data. Use tiles for display and spot exploration, not as the primary offline extraction path. GFW's [Bulk Download API](https://globalfishingwatch.org/our-apis/documentation/docs/v3/bulk-download) currently lists **fixed infrastructure detections only**, so it is not a bulk fishing effort export.
+
+## What is already available
+
+| Client request | GFW map/API today | Remaining research value |
+| --- | --- | --- |
+| Area, time, resolution selection | Map area reports and 4Wings reports accept regions or custom polygons, time ranges, and 0.1° or 0.01° grid resolution. Tile zoom is a display parameter, not the report's grid resolution. [Report API](https://globalfishingwatch.org/our-apis/documentation/docs/v3/4wings/report) | Save a canonical query and its exact boundary geometry, so another researcher can rerun it. |
+| Offline storage | Map can download area reports; historical fishing effort is available as static files and BigQuery tables. [Map guide](https://globalfishingwatch.org/user-guide/), [fishing effort data](https://globalfishingwatch.org/dataset-and-code-fishing-effort/) | Local queryable snapshots with dataset version, checksum, query, retrieval date, and caveats. |
+| Spatial and temporal patterns | Map has heatmaps, time series, before/after and period comparisons. [Map guide](https://globalfishingwatch.org/user-guide/) | Batch analysis across many regions, controlled baselines, uncertainty/sensitivity checks, and custom statistical methods. |
+| Vessel tracks | Map visualizes individual tracks. The guide's download statements are inconsistent: one passage says tracks cannot be downloaded from the public map, while another describes a vessel-sidebar CSV/GeoJSON track download. [Map guide](https://globalfishingwatch.org/user-guide/) | Treat track export as an unresolved capability; avoid promising raw AIS position access from the documented Vessels API. Fishing effort grid cells are **not tracks**. |
+| Other signals | 4Wings has AIS vessel presence and SAR detections; Events API has fishing, encounters, port visits, loitering and AIS gaps. [Key concepts](https://globalfishingwatch.org/our-apis/documentation/docs/v3/general-api-doc/key-concepts), [Events API](https://globalfishingwatch.org/our-apis/documentation/docs/v3/events) | Investigate relationships between effort and external conditions, SAR observations, or event patterns with explicit limitations. |
+
+Useful research questions beyond a straightforward map recreation:
+
+1. **Hotspot movement:** how do fishing-hour centroids and concentrated cells shift by season, gear type, or flag after holding grid, boundary, and observation window fixed?
+2. **Policy event studies:** did activity change inside an MPA or closure relative to a comparable control area and the same season in earlier years? This is a statistical comparison, not proof of policy causation.
+3. **Effort versus observation:** are apparent increases robust to AIS reception changes and vessel adoption, or do they coincide with improved coverage? GFW warns that rising coverage in 2012–2016 and added dynamic receivers around 2022 affect trend interpretation. [Fishing effort caveats](https://globalfishingwatch.org/dataset-and-code-fishing-effort/)
+4. **Cross-source comparison:** where do AIS apparent effort, AIS presence, SAR detections, and environmental or jurisdictional data disagree? These measures have different units and coverage and must remain separate variables. [4Wings API](https://globalfishingwatch.org/our-apis/documentation/docs/v3/4wings)
+
+## Data sources and what each returns
+
+| Source | Best use | Data and constraints |
+| --- | --- | --- |
+| [Static fishing effort download](https://globalfishingwatch.org/dataset-and-code-fishing-effort/) | Worldwide historical baseline; maximum offline reuse per API call (zero API calls after acquisition). | Fixed release covers 2012–2024. Daily fishing hours by flag and gear at 0.01°; monthly by flag and gear at 0.1°; daily by MMSI at 0.1°. Also published as `global-fishing-watch.fishing_effort_v3` BigQuery dataset. GFW says this cleaned static release differs from the continuously updated map/API. [Release note](https://globalfishingwatch.org/platform-update/global-fishing-watch-data-download-portal-version-3/) |
+| [4Wings report](https://globalfishingwatch.org/our-apis/documentation/docs/v3/4wings/report) | Exact region extracts; custom polygon; aggregate by day/month/year/entire range; flag, gear, vessel or MMSI grouping; 0.1°/0.01° cells or spatially aggregated totals. | `GET` for known region ID and cache reuse; `POST` for custom GeoJSON. Output can be CSV/JSON/TIF. In our probes, JSON returned directly and CSV returned a ZIP with data and caveats. One report per user at a time; a long request may return 524, then recover via `last-report`. The last report is retained for 30 minutes. [Recovery endpoint](https://globalfishingwatch.org/our-apis/documentation/docs/v3/4wings/last-report) |
+| [4Wings stats](https://globalfishingwatch.org/our-apis/documentation/docs/v3/4wings/stats) | Cheap worldwide totals or sanity checks. | Counts flags/vessel IDs and total fishing hours for a time period; not a regional grid or vessel list. |
+| [4Wings bins](https://globalfishingwatch.org/our-apis/documentation/docs/v3/4wings/bins) | Color-ramp thresholds at a zoom level. | Returns bins, not observations or a regional time series. |
+| [4Wings tile](https://globalfishingwatch.org/our-apis/documentation/docs/v3/4wings/tiles) | Interactive heatmaps after extraction. | PNG/MVT and other tile formats, `z/x/y` with zoom 0–12. One request per tile per filter/time selection; temporal frame limits apply. A PNG is rendered color, unsuitable as a quantitative source. |
+| [Events API](https://globalfishingwatch.org/our-apis/documentation/docs/v3/events) and [Vessels API](https://globalfishingwatch.org/our-apis/documentation/docs/v3/vessels) | Targeted vessel/event enrichment after candidate selection. | Paginated collections; use `nextOffset` to exhaust results. They are not a substitute for a global gridded effort download. [Pagination](https://globalfishingwatch.org/our-apis/documentation/docs/v3/general-api-doc/pagination) |
+
+For reproducibility, request a specific API dataset version such as `public-global-fishing-effort:v4.0` when running a study. If using `:latest` for discovery, save the resolved version from the `x-datasets` response header. GFW currently documents `:latest` as v4.0; it can change. [Dataset versions](https://globalfishingwatch.org/our-apis/documentation/docs/v3/general-api-doc/key-concepts)
+
+## Request-efficient extraction playbook
+
+1. **Choose the immutable source first.** For a question fully within 2012–2024 and one of the published grid/attribute combinations, fetch the static release once and filter locally. Do not repeat regional API reports to rebuild an existing global static dataset. Keep its release ID and download checksum. The static release and live v4 API are different products; do not silently splice them into a single series.
+2. **Specify the analytical unit before querying.** A study needs the minimum useful tuple `(region, time bin, grid cell, group, metric)`. Request the finest detail actually needed, because coarser sums can be made locally but fine cells, days, or vessel IDs cannot be recovered from coarse aggregates. Conversely, avoid `0.01° × DAILY × VESSEL_ID` for a large area unless that volume is truly required.
+3. **Prefer one reusable report over many specialized reports.** For a custom study polygon, obtain a gridded time series at the chosen resolution once, then derive heatmaps, totals, seasonal plots, and before/after differences locally. When only region totals are needed, use `spatial-aggregation=true` and omit unnecessary cell detail. Reports sum fishing hours; do not sum distinct vessel counts from cells to infer unique vessels. [Report parameters and fields](https://globalfishingwatch.org/our-apis/documentation/docs/v3/4wings/report)
+4. **Use known regions and caching where possible.** `GET /v3/4wings/report` with region ID/dataset can benefit from GFW's gateway cache. Use `POST` only for custom GeoJSON. Canonicalize and hash the complete URL or body, including dataset version, polygon, time range, resolution, filters, and grouping; serve repeats from the local cache. [Report method notes](https://globalfishingwatch.org/our-apis/documentation/docs/v3/4wings/report)
+5. **Plan batches sequentially.** Reports permit one in flight per user. Use a local queue and persist each completed result before starting another. If a report times out at the gateway after about 100 seconds, check `GET /v3/4wings/last-report` promptly before submitting a duplicate; recovery lasts 30 minutes. Split a study by disjoint time windows or nonoverlapping regions only when size or timeouts require it, and document boundary/window semantics to avoid double counting. [Report API](https://globalfishingwatch.org/our-apis/documentation/docs/v3/4wings/report), [last report](https://globalfishingwatch.org/our-apis/documentation/docs/v3/4wings/last-report)
+6. **Spend calls on enrichment only after selection.** Use report or local grid analysis to find relevant vessels/periods; then request vessel identities and event pages for that subset. Follow `nextOffset` and store page metadata. Use stats for worldwide checks and bins for rendering only.
+7. **Monitor limits and stop at errors.** GFW currently documents 50,000 requests/day and 1,500,000/month per user across tokens; response headers expose remaining quota, though usage checks update every 30 minutes. A report concurrency 429 is distinct from quota exhaustion. Apply backoff to retryable failures and do not loop on authorization or Cloudflare denials. [Limits](https://globalfishingwatch.org/our-apis/documentation/docs/license-rate-limits)
+
+Illustrative call counts, **not observed performance**: one historical static acquisition yields a reusable global baseline without API requests; one gridded regional report may supply all time slices for multiple local plots, whereas fetching `N` map tiles for each of `T` time selections requires about `N × T` tile requests. Actual maximum report size, duration, and practical split points remain unmeasured here.
+
+### Extraction manifest (minimum fields)
+
+Record `source`, `source_release_or_dataset_version`, `api_version`, `request_method`, canonical URL or POST-body hash, full GeoJSON or region ID/dataset, UTC start/end, grid and temporal resolution, grouping and filters, response headers (`x-datasets`, rate-limit fields), retrieval timestamp, raw-file checksum/size, unit (`apparent fishing hours`), caveat document version, and any transformation code revision. Keep raw extracts immutable; materialize local Parquet/GeoParquet or DuckDB tables as derivatives. The storage formats are a design recommendation, not an API requirement.
+
+## Authenticated probes
+
+The user-provided token in `api-secret.txt` was read without printing it. An initial Python `urllib` client received **HTTP 403 Cloudflare error 1010, `browser_signature_banned`** on bins and stats. After the user demonstrated a successful `curl` call, the same token was passed to `curl` through standard input and the requests succeeded. The denial was client-specific in this environment; it was **not evidence of an invalid token or inaccessible API**.
+
+All measurements below are **single observations**, not benchmarks or general limits. The report polygon was the 1° × 1° box `[-2,49]` to `[-1,50]` in the English Channel, using `public-global-fishing-effort:v4.0`, 2024-01-01 to 2024-02-01, and `group-by=GEARTYPE`. Elapsed times include network latency; the repeated monthly request may have benefited from caching.
+
+| Call | HTTP | Download | Elapsed | Observed shape |
+| --- | ---: | ---: | ---: | --- |
+| Vessel search for IMO `7831410` with `:latest` | 200 | 2,248 B | 0.74 s | One vessel record; `x-datasets: public-global-vessel-identity:v4.0`; two historical GFW vessel IDs. This matches the user's example. |
+| Worldwide bins, January 2024, 8 thresholds | 200 | 214 B | 8.27 s | `entries` held one 8-number threshold array, not observations. |
+| Worldwide stats, January 2024 | 200 | 124 B | 6.07 s | JSON array with about 10.39 million apparent fishing hours, 205 flags, 69,760 vessel IDs. |
+| Report: 0.1°, monthly, gridded JSON | 200 | 7,417 B | 1.07 s | 70 rows across 39 occupied cells and 6 gear categories; 2,548.286 summed fishing hours. Repeat: 0.30 s. |
+| Report: 0.1°, daily, gridded JSON | 200 | 54,064 B | 1.74 s | 504 rows. |
+| Report: 0.01°, monthly, gridded JSON | 200 | 86,594 B | 1.06 s | 817 rows. The API accepted uppercase `HIGH`. |
+| Report: monthly, spatially aggregated JSON | 200 | 631 B | 1.52 s | 6 gear rows, without cell coordinates. |
+| Report: 0.1°, monthly, gridded CSV | 200 | 316,378 B | 3.70 s | ZIP with CSV (3,295 B uncompressed), README (3,234 B), AIS caveats PDF (352,503 B), and geometry GeoJSON. |
+
+The report JSON is **not a ZIP**. Its `entries` array contained one object keyed by dataset version, and that object's value contained the rows. `total: 1` counted the dataset-level entry, **not** the number of grid rows. In a separate quiet-water polygon, the dataset key had a `null` value; a client must handle this as no returned rows. The stats response was a bare JSON array. The CSV ZIP is the better self-contained archival artifact because it includes caveats and geometry; JSON is much smaller for repeated programmatic analysis. In this example, daily time resolution multiplied payload by about 7.3 and row count by 7.2, while 0.01° cells multiplied payload by about 11.7 and rows by 11.7 relative to 0.1° monthly. These ratios depend on location, period, and fishing density.
+
+The rate-limit header showed `x-ratelimit-daily-remaining-requests: 49999` on several calls, but GFW states usage checks update every 30 minutes, so this is not a reliable per-request counter. The token resolved `:latest` to `v4.0` for vessel identity; fishing-effort responses also reported `v4.0` in `x-datasets`.
+
+Still to validate: a static-file sample and schema; known-region `GET` report caching; longer report ranges, practical maximum response size and timeout behavior; date-range inclusivity; exact behavior of vessel track exports; and whether cell-edge clipping affects sums for arbitrary polygons. The first full extractor should capture and compare raw responses, headers, and the bundled caveats rather than assuming the documentation examples describe every format.
+
+## Interpretation and use conditions
+
+Fishing hours are **apparent** activity inferred from AIS-equipped vessels, not catch or all fishing vessels. AIS adoption, reception, and filtering vary across place and time, so comparisons need coverage caveats and sensitivity checks. GFW estimates that AIS represents only a small fraction of the global fishing fleet, especially small vessels. [GFW caveats](https://globalfishingwatch.org/dataset-and-code-fishing-effort/)
+
+GFW's API terms are for non-commercial use, require attribution in visualizations/publications, and say individual datasets may have additional restrictions. Check the license and caveat files included with any download before redistribution. [License and attribution](https://globalfishingwatch.org/our-apis/documentation/docs/license-rate-limits)

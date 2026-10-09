@@ -1,3 +1,6 @@
+# Testing secrets
+api-secret.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
