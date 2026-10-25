@@ -1,0 +1,577 @@
+{
+  "manifest": {
+    "schemaVersion": 1,
+    "id": "d2becf45-a1ba-4f57-8175-fbb7ec19bc9c",
+    "createdAt": "2026-10-24T01:00:00Z",
+    "source": "synthetic-activity",
+    "datasetVersion": "fixture-v1",
+    "responseVersion": null,
+    "responseVersionStatus": "not applicable: synthetic generator",
+    "queryHash": "e187b397a98321731c11112202125c46272eebe6de2d600ce8d73446e727b095",
+    "complete": true,
+    "rows": 72,
+    "units": "synthetic apparent fishing hours",
+    "provenance": {
+      "generator": "fixture-v1",
+      "upstream": "none",
+      "confidence": "not supplied",
+      "observations": false,
+      "processing": "synthetic",
+      "transform": "normalized-report-v1",
+      "request": null
+    },
+    "files": {
+      "data.json": {
+        "sha256": "5283c99888552797e31955581b60dcf869791b05c4c96026f5f7c606b319042e",
+        "bytes": 5749
+      },
+      "data.csv": {
+        "sha256": "42db60bbd5d5a5e258a3f446843a62d840a535809b8a1dd7d6150bfcadd62ec0",
+        "bytes": 4001
+      },
+      "query.json": {
+        "sha256": "b1b08988b4cb772e5aa2cf8a0d2accf79dd7929ac5c0ea78419565bc27c8f6a9",
+        "bytes": 259
+      },
+      "boundary.geojson": {
+        "sha256": "38f4cf655c9d39115d41103e868d13d907ccce3dec2ca131ba113eac019b1621",
+        "bytes": 77
+      },
+      "caveats.txt": {
+        "sha256": "cc106bad18f2243fafad447b364e0c74874e9faff198d7c653689ee5f8866a2b",
+        "bytes": 248
+      }
+    }
+  },
+  "query": {
+    "schemaVersion": 1,
+    "source": "synthetic-activity",
+    "datasetVersion": "fixture-v1",
+    "metric": "synthetic apparent fishing hours",
+    "start": "2024-01-01",
+    "end": "2024-01-08",
+    "endExclusive": true,
+    "grid": 0.1,
+    "interval": "DAILY",
+    "grouping": "GEARTYPE",
+    "bounds": [
+      -6,
+      48,
+      -1,
+      51
+    ]
+  },
+  "rows": [
+    {
+      "date": "2024-01-01",
+      "lat": 48.4,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 1
+    },
+    {
+      "date": "2024-01-01",
+      "lat": 48.4,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 2
+    },
+    {
+      "date": "2024-01-01",
+      "lat": 48.4,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 3
+    },
+    {
+      "date": "2024-01-01",
+      "lat": 48.4,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 4
+    },
+    {
+      "date": "2024-01-01",
+      "lat": 49.1,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 5
+    },
+    {
+      "date": "2024-01-01",
+      "lat": 49.1,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 6
+    },
+    {
+      "date": "2024-01-01",
+      "lat": 49.1,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 7
+    },
+    {
+      "date": "2024-01-01",
+      "lat": 49.1,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 8
+    },
+    {
+      "date": "2024-01-01",
+      "lat": 49.8,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 9
+    },
+    {
+      "date": "2024-01-01",
+      "lat": 49.8,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 10
+    },
+    {
+      "date": "2024-01-01",
+      "lat": 49.8,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 11
+    },
+    {
+      "date": "2024-01-01",
+      "lat": 49.8,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 12
+    },
+    {
+      "date": "2024-01-02",
+      "lat": 48.4,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 2
+    },
+    {
+      "date": "2024-01-02",
+      "lat": 48.4,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 4
+    },
+    {
+      "date": "2024-01-02",
+      "lat": 48.4,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 6
+    },
+    {
+      "date": "2024-01-02",
+      "lat": 48.4,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 8
+    },
+    {
+      "date": "2024-01-02",
+      "lat": 49.1,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 10
+    },
+    {
+      "date": "2024-01-02",
+      "lat": 49.1,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 12
+    },
+    {
+      "date": "2024-01-02",
+      "lat": 49.1,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 14
+    },
+    {
+      "date": "2024-01-02",
+      "lat": 49.1,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 16
+    },
+    {
+      "date": "2024-01-02",
+      "lat": 49.8,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 18
+    },
+    {
+      "date": "2024-01-02",
+      "lat": 49.8,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 20
+    },
+    {
+      "date": "2024-01-02",
+      "lat": 49.8,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 22
+    },
+    {
+      "date": "2024-01-02",
+      "lat": 49.8,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 24
+    },
+    {
+      "date": "2024-01-03",
+      "lat": 48.4,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 3
+    },
+    {
+      "date": "2024-01-03",
+      "lat": 48.4,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 6
+    },
+    {
+      "date": "2024-01-03",
+      "lat": 48.4,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 9
+    },
+    {
+      "date": "2024-01-03",
+      "lat": 48.4,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 12
+    },
+    {
+      "date": "2024-01-03",
+      "lat": 49.1,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 15
+    },
+    {
+      "date": "2024-01-03",
+      "lat": 49.1,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 18
+    },
+    {
+      "date": "2024-01-03",
+      "lat": 49.1,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 21
+    },
+    {
+      "date": "2024-01-03",
+      "lat": 49.1,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 24
+    },
+    {
+      "date": "2024-01-03",
+      "lat": 49.8,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 27
+    },
+    {
+      "date": "2024-01-03",
+      "lat": 49.8,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 30
+    },
+    {
+      "date": "2024-01-03",
+      "lat": 49.8,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 33
+    },
+    {
+      "date": "2024-01-03",
+      "lat": 49.8,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 36
+    },
+    {
+      "date": "2024-01-05",
+      "lat": 48.4,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 5
+    },
+    {
+      "date": "2024-01-05",
+      "lat": 48.4,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 10
+    },
+    {
+      "date": "2024-01-05",
+      "lat": 48.4,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 15
+    },
+    {
+      "date": "2024-01-05",
+      "lat": 48.4,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 20
+    },
+    {
+      "date": "2024-01-05",
+      "lat": 49.1,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 25
+    },
+    {
+      "date": "2024-01-05",
+      "lat": 49.1,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 30
+    },
+    {
+      "date": "2024-01-05",
+      "lat": 49.1,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 35
+    },
+    {
+      "date": "2024-01-05",
+      "lat": 49.1,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 40
+    },
+    {
+      "date": "2024-01-05",
+      "lat": 49.8,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 45
+    },
+    {
+      "date": "2024-01-05",
+      "lat": 49.8,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 50
+    },
+    {
+      "date": "2024-01-05",
+      "lat": 49.8,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 55
+    },
+    {
+      "date": "2024-01-05",
+      "lat": 49.8,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 60
+    },
+    {
+      "date": "2024-01-06",
+      "lat": 48.4,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 0
+    },
+    {
+      "date": "2024-01-06",
+      "lat": 48.4,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 0
+    },
+    {
+      "date": "2024-01-06",
+      "lat": 48.4,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 0
+    },
+    {
+      "date": "2024-01-06",
+      "lat": 48.4,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 0
+    },
+    {
+      "date": "2024-01-06",
+      "lat": 49.1,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 0
+    },
+    {
+      "date": "2024-01-06",
+      "lat": 49.1,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 0
+    },
+    {
+      "date": "2024-01-06",
+      "lat": 49.1,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 0
+    },
+    {
+      "date": "2024-01-06",
+      "lat": 49.1,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 0
+    },
+    {
+      "date": "2024-01-06",
+      "lat": 49.8,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 0
+    },
+    {
+      "date": "2024-01-06",
+      "lat": 49.8,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 0
+    },
+    {
+      "date": "2024-01-06",
+      "lat": 49.8,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 0
+    },
+    {
+      "date": "2024-01-06",
+      "lat": 49.8,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 0
+    },
+    {
+      "date": "2024-01-07",
+      "lat": 48.4,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 7
+    },
+    {
+      "date": "2024-01-07",
+      "lat": 48.4,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 14
+    },
+    {
+      "date": "2024-01-07",
+      "lat": 48.4,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 21
+    },
+    {
+      "date": "2024-01-07",
+      "lat": 48.4,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 28
+    },
+    {
+      "date": "2024-01-07",
+      "lat": 49.1,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 35
+    },
+    {
+      "date": "2024-01-07",
+      "lat": 49.1,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 42
+    },
+    {
+      "date": "2024-01-07",
+      "lat": 49.1,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 49
+    },
+    {
+      "date": "2024-01-07",
+      "lat": 49.1,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 56
+    },
+    {
+      "date": "2024-01-07",
+      "lat": 49.8,
+      "lon": -5.5,
+      "geartype": "FISHING",
+      "hours": 63
+    },
+    {
+      "date": "2024-01-07",
+      "lat": 49.8,
+      "lon": -4.4,
+      "geartype": "TRAWLERS",
+      "hours": 70
+    },
+    {
+      "date": "2024-01-07",
+      "lat": 49.8,
+      "lon": -3.3,
+      "geartype": "FISHING",
+      "hours": 77
+    },
+    {
+      "date": "2024-01-07",
+      "lat": 49.8,
+      "lon": -2.1999999999999997,
+      "geartype": "TRAWLERS",
+      "hours": 84
+    }
+  ],
+  "files": {
+    "data.json": "[{\"date\":\"2024-01-01\",\"lat\":48.4,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":1},{\"date\":\"2024-01-01\",\"lat\":48.4,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":2},{\"date\":\"2024-01-01\",\"lat\":48.4,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":3},{\"date\":\"2024-01-01\",\"lat\":48.4,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":4},{\"date\":\"2024-01-01\",\"lat\":49.1,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":5},{\"date\":\"2024-01-01\",\"lat\":49.1,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":6},{\"date\":\"2024-01-01\",\"lat\":49.1,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":7},{\"date\":\"2024-01-01\",\"lat\":49.1,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":8},{\"date\":\"2024-01-01\",\"lat\":49.8,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":9},{\"date\":\"2024-01-01\",\"lat\":49.8,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":10},{\"date\":\"2024-01-01\",\"lat\":49.8,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":11},{\"date\":\"2024-01-01\",\"lat\":49.8,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":12},{\"date\":\"2024-01-02\",\"lat\":48.4,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":2},{\"date\":\"2024-01-02\",\"lat\":48.4,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":4},{\"date\":\"2024-01-02\",\"lat\":48.4,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":6},{\"date\":\"2024-01-02\",\"lat\":48.4,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":8},{\"date\":\"2024-01-02\",\"lat\":49.1,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":10},{\"date\":\"2024-01-02\",\"lat\":49.1,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":12},{\"date\":\"2024-01-02\",\"lat\":49.1,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":14},{\"date\":\"2024-01-02\",\"lat\":49.1,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":16},{\"date\":\"2024-01-02\",\"lat\":49.8,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":18},{\"date\":\"2024-01-02\",\"lat\":49.8,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":20},{\"date\":\"2024-01-02\",\"lat\":49.8,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":22},{\"date\":\"2024-01-02\",\"lat\":49.8,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":24},{\"date\":\"2024-01-03\",\"lat\":48.4,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":3},{\"date\":\"2024-01-03\",\"lat\":48.4,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":6},{\"date\":\"2024-01-03\",\"lat\":48.4,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":9},{\"date\":\"2024-01-03\",\"lat\":48.4,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":12},{\"date\":\"2024-01-03\",\"lat\":49.1,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":15},{\"date\":\"2024-01-03\",\"lat\":49.1,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":18},{\"date\":\"2024-01-03\",\"lat\":49.1,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":21},{\"date\":\"2024-01-03\",\"lat\":49.1,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":24},{\"date\":\"2024-01-03\",\"lat\":49.8,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":27},{\"date\":\"2024-01-03\",\"lat\":49.8,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":30},{\"date\":\"2024-01-03\",\"lat\":49.8,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":33},{\"date\":\"2024-01-03\",\"lat\":49.8,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":36},{\"date\":\"2024-01-05\",\"lat\":48.4,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":5},{\"date\":\"2024-01-05\",\"lat\":48.4,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":10},{\"date\":\"2024-01-05\",\"lat\":48.4,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":15},{\"date\":\"2024-01-05\",\"lat\":48.4,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":20},{\"date\":\"2024-01-05\",\"lat\":49.1,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":25},{\"date\":\"2024-01-05\",\"lat\":49.1,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":30},{\"date\":\"2024-01-05\",\"lat\":49.1,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":35},{\"date\":\"2024-01-05\",\"lat\":49.1,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":40},{\"date\":\"2024-01-05\",\"lat\":49.8,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":45},{\"date\":\"2024-01-05\",\"lat\":49.8,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":50},{\"date\":\"2024-01-05\",\"lat\":49.8,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":55},{\"date\":\"2024-01-05\",\"lat\":49.8,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":60},{\"date\":\"2024-01-06\",\"lat\":48.4,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":0},{\"date\":\"2024-01-06\",\"lat\":48.4,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":0},{\"date\":\"2024-01-06\",\"lat\":48.4,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":0},{\"date\":\"2024-01-06\",\"lat\":48.4,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":0},{\"date\":\"2024-01-06\",\"lat\":49.1,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":0},{\"date\":\"2024-01-06\",\"lat\":49.1,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":0},{\"date\":\"2024-01-06\",\"lat\":49.1,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":0},{\"date\":\"2024-01-06\",\"lat\":49.1,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":0},{\"date\":\"2024-01-06\",\"lat\":49.8,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":0},{\"date\":\"2024-01-06\",\"lat\":49.8,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":0},{\"date\":\"2024-01-06\",\"lat\":49.8,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":0},{\"date\":\"2024-01-06\",\"lat\":49.8,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":0},{\"date\":\"2024-01-07\",\"lat\":48.4,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":7},{\"date\":\"2024-01-07\",\"lat\":48.4,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":14},{\"date\":\"2024-01-07\",\"lat\":48.4,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":21},{\"date\":\"2024-01-07\",\"lat\":48.4,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":28},{\"date\":\"2024-01-07\",\"lat\":49.1,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":35},{\"date\":\"2024-01-07\",\"lat\":49.1,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":42},{\"date\":\"2024-01-07\",\"lat\":49.1,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":49},{\"date\":\"2024-01-07\",\"lat\":49.1,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":56},{\"date\":\"2024-01-07\",\"lat\":49.8,\"lon\":-5.5,\"geartype\":\"FISHING\",\"hours\":63},{\"date\":\"2024-01-07\",\"lat\":49.8,\"lon\":-4.4,\"geartype\":\"TRAWLERS\",\"hours\":70},{\"date\":\"2024-01-07\",\"lat\":49.8,\"lon\":-3.3,\"geartype\":\"FISHING\",\"hours\":77},{\"date\":\"2024-01-07\",\"lat\":49.8,\"lon\":-2.1999999999999997,\"geartype\":\"TRAWLERS\",\"hours\":84}]",
+    "data.csv": "date,lat,lon,geartype,vesselType,flag,vesselId,hours\n\"2024-01-01\",\"48.4\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"1\"\n\"2024-01-01\",\"48.4\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"2\"\n\"2024-01-01\",\"48.4\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"3\"\n\"2024-01-01\",\"48.4\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"4\"\n\"2024-01-01\",\"49.1\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"5\"\n\"2024-01-01\",\"49.1\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"6\"\n\"2024-01-01\",\"49.1\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"7\"\n\"2024-01-01\",\"49.1\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"8\"\n\"2024-01-01\",\"49.8\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"9\"\n\"2024-01-01\",\"49.8\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"10\"\n\"2024-01-01\",\"49.8\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"11\"\n\"2024-01-01\",\"49.8\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"12\"\n\"2024-01-02\",\"48.4\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"2\"\n\"2024-01-02\",\"48.4\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"4\"\n\"2024-01-02\",\"48.4\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"6\"\n\"2024-01-02\",\"48.4\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"8\"\n\"2024-01-02\",\"49.1\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"10\"\n\"2024-01-02\",\"49.1\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"12\"\n\"2024-01-02\",\"49.1\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"14\"\n\"2024-01-02\",\"49.1\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"16\"\n\"2024-01-02\",\"49.8\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"18\"\n\"2024-01-02\",\"49.8\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"20\"\n\"2024-01-02\",\"49.8\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"22\"\n\"2024-01-02\",\"49.8\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"24\"\n\"2024-01-03\",\"48.4\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"3\"\n\"2024-01-03\",\"48.4\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"6\"\n\"2024-01-03\",\"48.4\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"9\"\n\"2024-01-03\",\"48.4\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"12\"\n\"2024-01-03\",\"49.1\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"15\"\n\"2024-01-03\",\"49.1\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"18\"\n\"2024-01-03\",\"49.1\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"21\"\n\"2024-01-03\",\"49.1\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"24\"\n\"2024-01-03\",\"49.8\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"27\"\n\"2024-01-03\",\"49.8\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"30\"\n\"2024-01-03\",\"49.8\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"33\"\n\"2024-01-03\",\"49.8\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"36\"\n\"2024-01-05\",\"48.4\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"5\"\n\"2024-01-05\",\"48.4\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"10\"\n\"2024-01-05\",\"48.4\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"15\"\n\"2024-01-05\",\"48.4\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"20\"\n\"2024-01-05\",\"49.1\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"25\"\n\"2024-01-05\",\"49.1\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"30\"\n\"2024-01-05\",\"49.1\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"35\"\n\"2024-01-05\",\"49.1\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"40\"\n\"2024-01-05\",\"49.8\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"45\"\n\"2024-01-05\",\"49.8\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"50\"\n\"2024-01-05\",\"49.8\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"55\"\n\"2024-01-05\",\"49.8\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"60\"\n\"2024-01-06\",\"48.4\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"0\"\n\"2024-01-06\",\"48.4\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"0\"\n\"2024-01-06\",\"48.4\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"0\"\n\"2024-01-06\",\"48.4\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"0\"\n\"2024-01-06\",\"49.1\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"0\"\n\"2024-01-06\",\"49.1\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"0\"\n\"2024-01-06\",\"49.1\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"0\"\n\"2024-01-06\",\"49.1\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"0\"\n\"2024-01-06\",\"49.8\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"0\"\n\"2024-01-06\",\"49.8\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"0\"\n\"2024-01-06\",\"49.8\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"0\"\n\"2024-01-06\",\"49.8\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"0\"\n\"2024-01-07\",\"48.4\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"7\"\n\"2024-01-07\",\"48.4\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"14\"\n\"2024-01-07\",\"48.4\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"21\"\n\"2024-01-07\",\"48.4\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"28\"\n\"2024-01-07\",\"49.1\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"35\"\n\"2024-01-07\",\"49.1\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"42\"\n\"2024-01-07\",\"49.1\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"49\"\n\"2024-01-07\",\"49.1\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"56\"\n\"2024-01-07\",\"49.8\",\"-5.5\",\"FISHING\",\"\",\"\",\"\",\"63\"\n\"2024-01-07\",\"49.8\",\"-4.4\",\"TRAWLERS\",\"\",\"\",\"\",\"70\"\n\"2024-01-07\",\"49.8\",\"-3.3\",\"FISHING\",\"\",\"\",\"\",\"77\"\n\"2024-01-07\",\"49.8\",\"-2.1999999999999997\",\"TRAWLERS\",\"\",\"\",\"\",\"84\"\n",
+    "query.json": "{\"schemaVersion\":1,\"source\":\"synthetic-activity\",\"datasetVersion\":\"fixture-v1\",\"metric\":\"synthetic apparent fishing hours\",\"start\":\"2024-01-01\",\"end\":\"2024-01-08\",\"endExclusive\":true,\"grid\":0.1,\"interval\":\"DAILY\",\"grouping\":\"GEARTYPE\",\"bounds\":[-6,48,-1,51]}\n",
+    "boundary.geojson": "{\"type\":\"Polygon\",\"coordinates\":[[[-6,48],[-1,48],[-1,51],[-6,51],[-6,48]]]}\n",
+    "caveats.txt": "SYNTHETIC REPORT VERIFICATION FIXTURE. No GFW observations or API requests. Twelve illustrative coordinates per returned day, one missing day and one explicit-zero day; these values do not represent area coverage and must not be used for research.\n"
+  }
+}

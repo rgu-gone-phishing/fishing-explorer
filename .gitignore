@@ -1,6 +1,9 @@
 # Testing secrets
 api-secret.txt
 
+# Local upstream source snapshots; provenance is recorded in references/README.md
+/references/gfw-frontend/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -221,3 +224,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local application state (queries and generated artifacts)
+/local-data/
+/node_modules/

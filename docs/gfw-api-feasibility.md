@@ -2,6 +2,8 @@
 
 Research date: 2026-10-09. Scope: AIS-based **apparent fishing effort**, its historical downloads, and adjacent APIs relevant to downstream analysis. Endpoint capabilities below are from GFW's public documentation; the small measured responses in the probe section came from authenticated `curl` calls.
 
+> **Planning update, 2026-10-23:** this document preserves the original research and v4 measurements. The current direction first targets value-add parity, then further analysis; see the [new specification](parity-phase-specification.md), [development plan](parity-phase-development-plan.md) and [evidence review](gfw-parity-evidence.md). GFW's [21 October v5 release](https://globalfishingwatch.org/platform-update/version-5-data-pipeline-release/) supersedes statements below about `latest` being v4. No probes in this document were rerun or relabeled as v5. Treat static-release coverage/schema statements as describing the release investigated then, and recheck its metadata before use. VMS availability and country-specific permissions are addressed in the new review.
+
 ## Decision
 
 Build an **offline, versioned research workbench** around GFW's data. A second interactive map with basic heatmaps, vessel tracks, and before/after charts would mostly duplicate the [GFW map](https://globalfishingwatch.org/user-guide/). The distinctive work is to freeze an exact data extract; join it to external covariates or policy boundaries; run repeatable spatial and temporal analyses; retain provenance and caveats; and export figures and tables suitable for review. This is a proposed project focus, not a claim that GFW cannot perform any individual analysis below.

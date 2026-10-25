@@ -1,0 +1,13 @@
+// Bounded streaming CSV syntax/header inspection. Original file bytes stay unchanged.
+export class CsvInspector{
+ constructor(){this.headers=null;this.rows=0;this.preview=[];this.previewBytes=0;this.previewClosed=false;this.row=[];this.field='';this.state='plain';this.skipLF=false;this.first=true;this.started=false;this.rowCharacters=0;}
+ fieldEnd(){if(this.field.length>1024*1024)throw Error('CSV field exceeds the inspection limit.');this.row.push(this.field);if(this.row.length>256)throw Error('CSV exceeds 256 columns.');this.field='';this.state='plain';this.started=true;}
+ rowEnd(){if(!this.started&&!this.field&&!this.row.length)return;this.fieldEnd();const row=this.row;this.row=[];this.started=false;this.rowCharacters=0;if(!this.headers){if(row.some(h=>!h||h.length>200)||new Set(row).size!==row.length||!['structure_id','lon','lat'].every(k=>row.includes(k)))throw Error('Unsupported bulk CSV header; original source schema requires inspection.');this.headers=row;return;}if(row.length!==this.headers.length)throw Error('Bulk CSV rows disagree with its header.');this.rows++;if(this.preview.length<50&&!this.previewClosed){const bytes=Buffer.byteLength(JSON.stringify(row));if(this.previewBytes+bytes<=2*1024*1024){this.preview.push(row);this.previewBytes+=bytes;}else this.previewClosed=true;}}
+ push(text){for(const c of text){if(this.first){this.first=false;if(c==='\uFEFF')continue;}if(this.skipLF){this.skipLF=false;if(c==='\n')continue;}if(++this.rowCharacters>4*1024*1024||this.field.length>1024*1024)throw Error('Bulk CSV field or row exceeds the inspection limit.');
+   if(this.state==='quoted'){if(c==='"')this.state='closed';else this.field+=c;continue;}
+   if(this.state==='closed'){if(c==='"'){this.field+='"';this.state='quoted';continue;}if(![',','\r','\n'].includes(c))throw Error('Invalid characters after a quoted CSV field.');}
+   else if(c==='"'){if(this.field)throw Error('Quote inside unquoted CSV field.');this.state='quoted';this.started=true;continue;}
+   if(c===',')this.fieldEnd();else if(c==='\r'||c==='\n'){this.rowEnd();this.skipLF=c==='\r';}else{this.field+=c;this.started=true;}
+  }}
+ finish(){if(this.state==='quoted')throw Error('Incomplete quoted CSV field.');this.rowEnd();if(!this.headers)throw Error('Bulk CSV has no supported header.');return {kind:'csv-syntax-and-header',headers:this.headers,rows:this.rows,preview:this.preview,previewLimit:50,previewByteLimit:2*1024*1024,previewBytes:this.previewBytes,note:'All rows checked for CSV structure, not independently validated observations. Preview retains source strings and shows the first records within 50-row / 2 MiB preview limits.'};}
+}

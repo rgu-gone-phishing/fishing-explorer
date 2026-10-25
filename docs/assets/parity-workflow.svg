@@ -1,0 +1,207 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="2440" viewBox="0 0 1680 2440" role="img" aria-labelledby="title description">
+  <title id="title">Fishing Explorer: three workflow design concepts</title>
+  <desc id="description">Original documentation wireframes showing an extract builder with separate preview and saved-data resolution, a partially saved download recovering from an upstream timeout, and a VMS catalogue with access and permission limits. Design concept, illustrative states, no live data.</desc>
+  <defs>
+    <style>
+      text { font-family: 'DejaVu Sans', Arial, sans-serif; fill: #173247; }
+      .title { font-size: 43px; font-weight: 700; letter-spacing: -1px; }
+      .section { font-size: 29px; font-weight: 700; }
+      .brand { font-size: 23px; font-weight: 700; }
+      .nav { font-size: 17px; font-weight: 700; letter-spacing: 1px; }
+      .label { font-size: 16px; font-weight: 700; letter-spacing: 1.2px; fill: #516775; }
+      .body { font-size: 22px; }
+      .strong { font-size: 23px; font-weight: 700; }
+      .small { font-size: 18px; fill: #516775; }
+      .tiny { font-size: 16px; fill: #516775; }
+      .white { fill: #ffffff; }
+      .teal { fill: #006c68; }
+      .amber { fill: #875515; }
+      .muted { fill: #516775; }
+      .line { stroke: #d7e1e6; stroke-width: 2; }
+      .card { fill: #ffffff; stroke: #d7e1e6; stroke-width: 2; }
+      .input { fill: #f8fafb; stroke: #c8d6dd; stroke-width: 2; }
+    </style>
+    <pattern id="grid" x="0" y="0" width="38" height="38" patternUnits="userSpaceOnUse">
+      <rect width="38" height="38" fill="#f0f5f6"/>
+      <path d="M38 0H0V38" fill="none" stroke="#c7d6dc" stroke-width="1.5"/>
+    </pattern>
+    <symbol id="chevron" viewBox="0 0 20 20"><path d="m4 7 6 6 6-6" fill="none" stroke="#516775" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10" fill="none" stroke="#006c68" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+
+  <rect width="1680" height="2440" fill="#edf3f5"/>
+  <rect width="1680" height="12" fill="#006c68"/>
+  <text x="64" y="79" class="title">Research controls that make the data explicit</text>
+  <text x="66" y="119" class="body muted">Fishing Explorer · value-add parity phase · workflow concepts for client discussion</text>
+  <rect x="65" y="141" width="650" height="35" rx="17.5" fill="#dcece9"/>
+  <text x="84" y="165" class="small teal">Design concept • illustrative states • no live data</text>
+
+  <!-- Screen 1: extract builder -->
+  <text x="66" y="228" class="section">01  Build a reproducible extract</text>
+  <text x="1125" y="228" class="small">Preview choices ≠ saved data choices</text>
+  <rect x="64" y="251" width="1552" height="652" rx="18" class="card"/>
+  <path d="M82 251H1598Q1616 251 1616 269V318H64V269Q64 251 82 251" fill="#173247"/>
+  <circle cx="101" cy="284" r="13" fill="#73d0bf"/>
+  <path d="m95 285 6-6 6 6-6 6z" fill="#173247"/>
+  <text x="130" y="292" class="brand white">Fishing Explorer</text>
+  <text x="543" y="290" class="nav white">EXTRACT</text>
+  <text x="710" y="290" class="nav" style="fill:#b7cad4">DOWNLOADS</text>
+  <text x="923" y="290" class="nav" style="fill:#b7cad4">DATA CATALOGUE</text>
+  <rect x="541" y="311" width="96" height="7" fill="#73d0bf"/>
+  <text x="1415" y="290" class="small" style="fill:#b7cad4">Local workspace</text>
+
+  <text x="98" y="361" class="label">SOURCE &amp; VERSION</text>
+  <text x="98" y="398" class="strong">AIS apparent fishing activity</text>
+  <rect x="98" y="414" width="151" height="36" rx="9" fill="#dcece9"/>
+  <text x="113" y="439" class="small teal">v5.0 · pinned</text>
+  <text x="268" y="438" class="small">Recorded in every export</text>
+  <text x="98" y="491" class="label">AREA</text>
+  <rect x="98" y="508" width="493" height="65" rx="9" class="input"/>
+  <text x="116" y="548" class="body">English Channel · sample boundary</text>
+  <text x="98" y="602" class="label">TIME RANGE · JANUARY 2024</text>
+  <rect x="98" y="618" width="493" height="51" rx="9" class="input"/>
+  <text x="116" y="651" class="body">From  2024-01-01 00:00 UTC</text>
+  <rect x="98" y="680" width="493" height="51" rx="9" class="input"/>
+  <text x="116" y="713" class="body">To      2024-02-01 00:00 UTC</text>
+  <text x="98" y="762" class="small">Date bounds validated before extraction.</text>
+
+  <rect x="629" y="343" width="953" height="192" rx="12" fill="#f3f7f8" stroke="#d7e1e6" stroke-width="2"/>
+  <text x="652" y="379" class="strong">Map preview</text>
+  <rect x="848" y="355" width="158" height="33" rx="16" fill="#e2eaf0"/>
+  <text x="868" y="378" class="tiny">DISPLAY ONLY</text>
+  <rect x="652" y="401" width="332" height="103" rx="6" fill="url(#grid)"/>
+  <rect x="724" y="418" width="154" height="67" rx="5" fill="none" stroke="#006c68" stroke-width="3" stroke-dasharray="7 5"/>
+  <text x="1008" y="427" class="body">Zoom, framing and colour scale</text>
+  <text x="1008" y="459" class="small">Change the display, not the saved grid.</text>
+  <text x="1008" y="491" class="tiny">Schematic grid · no geographic or activity data</text>
+
+  <rect x="629" y="553" width="953" height="211" rx="12" fill="#ffffff" stroke="#87b9b2" stroke-width="2"/>
+  <text x="652" y="589" class="strong teal">Saved extract</text>
+  <text x="1097" y="589" class="small">Independent, explicit settings</text>
+  <text x="652" y="624" class="label">SPATIAL GRID</text>
+  <text x="961" y="624" class="label">TIME BINS</text>
+  <text x="1267" y="624" class="label">GROUP BY</text>
+  <rect x="652" y="639" width="284" height="58" rx="8" class="input"/>
+  <rect x="961" y="639" width="282" height="58" rx="8" class="input"/>
+  <rect x="1267" y="639" width="289" height="58" rx="8" class="input"/>
+  <text x="670" y="677" class="strong">0.01°</text>
+  <text x="979" y="677" class="strong">Daily</text>
+  <text x="1285" y="677" class="strong">Gear type</text>
+  <path d="m904 666 6 6 6-6 m295 0 6 6 6-6 m301 0 6 6 6-6" fill="none" stroke="#516775" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="652" y="731" class="small">Grid size describes aggregation; it is not positional accuracy.</text>
+
+  <line x1="98" y1="792" x2="1582" y2="792" class="line"/>
+  <text x="98" y="832" class="strong">CSV + query manifest + caveats</text>
+  <text x="98" y="864" class="small">Requested settings remain visible in the saved plan and output.</text>
+  <rect x="1120" y="814" width="181" height="54" rx="9" fill="#ffffff" stroke="#a6bdc7" stroke-width="2"/>
+  <text x="1154" y="849" class="body">Save plan</text>
+  <rect x="1319" y="814" width="263" height="54" rx="9" fill="#006c68"/>
+  <text x="1352" y="849" class="body white">Preview request</text>
+
+  <!-- Screen 2: recovery and immutable artifacts -->
+  <text x="66" y="970" class="section">02  Keep partial work safe and recovery visible</text>
+  <text x="1260" y="970" class="small">Synthetic job states</text>
+  <rect x="64" y="994" width="1552" height="582" rx="18" class="card"/>
+  <path d="M82 994H1598Q1616 994 1616 1012V1061H64V1012Q64 994 82 994" fill="#173247"/>
+  <circle cx="101" cy="1027" r="13" fill="#73d0bf"/>
+  <path d="m95 1028 6-6 6 6-6 6z" fill="#173247"/>
+  <text x="130" y="1035" class="brand white">Fishing Explorer</text>
+  <text x="543" y="1033" class="nav" style="fill:#b7cad4">EXTRACT</text>
+  <text x="710" y="1033" class="nav white">DOWNLOADS</text>
+  <text x="923" y="1033" class="nav" style="fill:#b7cad4">DATA CATALOGUE</text>
+  <rect x="708" y="1054" width="134" height="7" fill="#73d0bf"/>
+  <text x="1415" y="1033" class="small" style="fill:#b7cad4">Local workspace</text>
+
+  <text x="98" y="1111" class="strong">Channel activity · illustrative batch</text>
+  <text x="98" y="1145" class="small">Saved query and original settings travel with every chunk.</text>
+  <rect x="98" y="1171" width="872" height="112" rx="11" fill="#fff4df" stroke="#e3c488" stroke-width="2"/>
+  <circle cx="127" cy="1206" r="12" fill="none" stroke="#875515" stroke-width="2.5"/>
+  <path d="M127 1199v8l5 3" stroke="#875515" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <text x="154" y="1213" class="strong amber">Recovering upstream timeout</text>
+  <text x="121" y="1248" class="small" style="fill:#714b1b">Checking the existing report before submitting another request.</text>
+  <text x="98" y="1324" class="strong">2 / 6 chunks saved</text>
+  <rect x="384" y="1301" width="129" height="34" rx="17" fill="#fff4df"/>
+  <text x="410" y="1325" class="small amber">PARTIAL</text>
+  <rect x="98" y="1346" width="130" height="18" rx="5" fill="#006c68"/>
+  <rect x="241" y="1346" width="130" height="18" rx="5" fill="#006c68"/>
+  <rect x="384" y="1346" width="130" height="18" rx="5" fill="#fff4df" stroke="#ba8737" stroke-width="2"/>
+  <rect x="527" y="1346" width="130" height="18" rx="5" fill="#e6edf0"/>
+  <rect x="670" y="1346" width="130" height="18" rx="5" fill="#e6edf0"/>
+  <rect x="813" y="1346" width="130" height="18" rx="5" fill="#e6edf0"/>
+  <text x="98" y="1397" class="small">Saved locally</text>
+  <text x="384" y="1397" class="small amber">Recovering</text>
+  <text x="675" y="1397" class="small">Queued</text>
+  <text x="98" y="1446" class="body">Partial output is never labelled complete.</text>
+  <text x="98" y="1478" class="small">Resume uses the saved plan; completed chunks stay intact.</text>
+
+  <rect x="1013" y="1091" width="569" height="388" rx="12" fill="#f3f7f8" stroke="#d7e1e6" stroke-width="2"/>
+  <text x="1037" y="1131" class="strong">Artifact evidence</text>
+  <text x="1037" y="1167" class="small">Illustrative record · no generated data files</text>
+  <line x1="1037" y1="1186" x2="1558" y2="1186" class="line"/>
+  <text x="1037" y="1221" class="label">PROVENANCE</text>
+  <text x="1037" y="1253" class="body">Source version + full query + boundary</text>
+  <text x="1037" y="1285" class="body">UTC retrieval time + transformation log</text>
+  <text x="1037" y="1329" class="label">INTEGRITY</text>
+  <text x="1037" y="1361" class="body">Per-file checksum recorded on save</text>
+  <text x="1037" y="1405" class="label">COMPLETION RULE</text>
+  <text x="1037" y="1437" class="body">All planned chunks saved and validated</text>
+
+  <line x1="98" y1="1501" x2="1582" y2="1501" class="line"/>
+  <text x="98" y="1541" class="small">Progress describes local state, not a guaranteed upstream completion time.</text>
+  <rect x="1329" y="1517" width="253" height="39" rx="8" fill="#e3eeed"/>
+  <text x="1362" y="1544" class="small teal">View recovery log</text>
+
+  <!-- Screen 3: capability catalogue and source integrity -->
+  <text x="66" y="1643" class="section">03  Discover VMS access before planning an analysis</text>
+  <text x="1234" y="1643" class="small">No country access assumed</text>
+  <rect x="64" y="1667" width="1552" height="668" rx="18" class="card"/>
+  <path d="M82 1667H1598Q1616 1667 1616 1685V1734H64V1685Q64 1667 82 1667" fill="#173247"/>
+  <circle cx="101" cy="1700" r="13" fill="#73d0bf"/>
+  <path d="m95 1701 6-6 6 6-6 6z" fill="#173247"/>
+  <text x="130" y="1708" class="brand white">Fishing Explorer</text>
+  <text x="543" y="1706" class="nav" style="fill:#b7cad4">EXTRACT</text>
+  <text x="710" y="1706" class="nav" style="fill:#b7cad4">DOWNLOADS</text>
+  <text x="923" y="1706" class="nav white">DATA CATALOGUE</text>
+  <rect x="920" y="1727" width="199" height="7" fill="#73d0bf"/>
+  <text x="1415" y="1706" class="small" style="fill:#b7cad4">Local workspace</text>
+
+  <text x="98" y="1784" class="strong">Vessel monitoring system · VMS</text>
+  <text x="98" y="1819" class="body muted">Country / fleet: to be confirmed</text>
+  <rect x="1117" y="1761" width="465" height="44" rx="22" fill="#dcece9"/>
+  <text x="1140" y="1791" class="body teal">Available where permitted</text>
+
+  <rect x="98" y="1850" width="1484" height="150" rx="10" fill="#f3f7f8" stroke="#d7e1e6" stroke-width="2"/>
+  <text x="121" y="1884" class="label">ACCESS ROUTE</text>
+  <text x="637" y="1884" class="label">CURRENT PLANNING STATUS</text>
+  <line x1="121" y1="1901" x2="1559" y2="1901" class="line"/>
+  <text x="121" y="1935" class="body">Public API</text>
+  <text x="637" y="1935" class="strong">Unavailable</text>
+  <text x="121" y="1974" class="body">Country-specific map export</text>
+  <text x="637" y="1974" class="strong amber">Unverified for this country / fleet</text>
+
+  <text x="98" y="2042" class="small">Confirm export rights, granularity and reuse terms for each available source.</text>
+  <rect x="98" y="2063" width="253" height="52" rx="9" fill="#ffffff" stroke="#a6bdc7" stroke-width="2"/>
+  <text x="131" y="2097" class="body">View in GFW ↗</text>
+  <rect x="368" y="2063" width="310" height="52" rx="9" fill="#006c68"/>
+  <text x="398" y="2097" class="body white">Import permitted file</text>
+  <text x="711" y="2084" class="small">Import retains original metadata</text>
+  <text x="711" y="2111" class="small">and records the permission basis.</text>
+
+  <text x="98" y="2160" class="label">KEEP THESE DIMENSIONS SEPARATE</text>
+  <rect x="98" y="2178" width="472" height="124" rx="10" fill="#f3f7f8" stroke="#d7e1e6" stroke-width="2"/>
+  <rect x="589" y="2178" width="490" height="124" rx="10" fill="#f3f7f8" stroke="#d7e1e6" stroke-width="2"/>
+  <rect x="1098" y="2178" width="484" height="124" rx="10" fill="#f3f7f8" stroke="#d7e1e6" stroke-width="2"/>
+  <text x="119" y="2212" class="strong">Source</text>
+  <text x="119" y="2245" class="small">VMS · country / fleet · coverage</text>
+  <text x="119" y="2275" class="small">Preserved from the permitted file</text>
+  <text x="610" y="2212" class="strong">Derivation</text>
+  <text x="610" y="2245" class="small">Upstream inference and aggregation</text>
+  <text x="610" y="2275" class="small">Local transformations recorded</text>
+  <text x="1119" y="2212" class="strong">Confidence evidence</text>
+  <text x="1119" y="2245" class="small">Source-defined measure, if supplied</text>
+  <text x="1119" y="2275" class="small">“Not supplied” is not “low confidence”</text>
+
+  <text x="66" y="2384" class="small">Design concept • illustrative states • no live data</text>
+  <text x="875" y="2384" class="small">Original planning wireframes · not a GFW product screen</text>
+  <text x="66" y="2414" class="tiny">Sample area, dates, choices and job progress explain interaction design; they do not report measurements or verified access.</text>
+</svg>
